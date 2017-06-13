@@ -41,9 +41,22 @@ function scrub(e) {
   console.log(e);
 }
 
-// function toggleFullScreen() {
-//   Element.requestFullscreen()
-// }
+function toggleFullScreen() {
+  Element.requestFullscreen()
+}
+
+function toggleFullScreen() {
+    // SOURCE: https://www.sitepoint.com/use-html5-full-screen-api/
+    if (video.requestFullscreen) {
+        video.requestFullscreen();
+    } else if (video.webkitRequestFullscreen) {
+        video.webkitRequestFullscreen();
+    } else if (video.mozRequestFullScreen) {
+        video.mozRequestFullScreen();
+    } else if (video.msRequestFullscreen) {
+        video.msRequestFullscreen();
+    }
+}
 
 // Hook up event listeners
 
@@ -66,4 +79,4 @@ progress.addEventListener('mousemove', (e) => mousedown && scrub(e));
 progress.addEventListener('mousedown', () => mousedown = true);
 progress.addEventListener('mouseup', () => mousedown = false);
 
-// fullscreen.addEventListener('click', toggleFullScreen);
+fullscreen.addEventListener('click', toggleFullScreen);
